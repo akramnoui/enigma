@@ -1,5 +1,5 @@
 export interface Rotor {
-    wiring: string; // Wiring sequence, e.g., "EKMFLGDQVZNTOWYHXUSPAIBRCJ"
+    cablage: string; // Wiring sequence, e.g., "EKMFLGDQVZNTOWYHXUSPAIBRCJ"
     notch: string;  // The position where the next rotor steps
     position: number; // Current rotor position (0-25)
     ringSetting: number; // Ring setting offset (0-25)
@@ -15,7 +15,7 @@ export interface Rotor {
   
   export interface EnigmaConfig {
     rotors: Rotor[];
-    reflector: Reflector;
+    reflecteur: Reflector;
     plugboard: Plugboard;
   }
   
