@@ -1,46 +1,110 @@
-# Getting Started with Create React App
+# Enigma Machine Simulator
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
+This project is a fully functional simulator of the Enigma machine, built with **React** and **TypeScript**. The simulation replicates the core functionality of the original Enigma machine, allowing users to encrypt and decrypt messages interactively. The interface includes rotor controls, a plugboard, a reflector, and other components required for realistic encryption.
 
-## Available Scripts
+The Enigma machine was a cipher device used in the 20th century for secure communication. It worked by using multiple rotors, a plugboard, and a reflector to produce a highly secure, pseudo-random encryption of messages.
 
-In the project directory, you can run:
+## Features
+- **Realistic Encryption/Decryption:** Simulates the Enigma machine's encryption process.
+- **Dynamic Rotor Movement:** Rotors automatically advance after each key press.
+- **Plugboard Support:** Allows custom plugboard connections for added complexity.
+- **Reflector Support:** Simulates the real-world reflector wiring for accurate encryption.
+- **Configurable Settings:** Customize rotors, plugboard, and reflector settings before encryption.
+- **Reset Functionality:** Restore the default configuration at any time.
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## How to Use the Simulation
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### **To run the Enigma machine simulator, simply visit the following link:**
 
-### `npm test`
+## [**Enigma Machine Simulator**](https://enigma-seven-xi.vercel.app/simulation)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### **How to Encrypt and Decrypt:**
+1. **Customize the Machine Configuration:**
+   - **Rotors:** Adjust rotor positions and settings in the *Rotor Settings* panel.
+   - **Plugboard:** Add plugboard connections to swap letters.
+   - **Reflector:** Configure the reflector wiring if needed (default wiring is provided).
 
-### `npm run build`
+2. **Encryption:**
+   - Use the on-screen keyboard to input letters one by one.
+   - The encrypted letters will appear on the lightboard and in the encrypted message panel.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. **Decryption:**
+   - To decrypt a message, use the same settings as for encryption. The Enigma machine uses the same configuration to reverse the encryption process.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## How the Enigma Machine Works
 
-### `npm run eject`
+The Enigma machine works through a combination of several components:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+1. **Rotors:**
+   - The machine has multiple rotors, each with a unique wiring. The rotors are positioned at the start and rotate after each letter is pressed.
+   - In this simulator, you can configure the rotors’ wiring, starting position, and the notch setting, which determines when the next rotor advances.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. **Plugboard:**
+   - The plugboard allows you to swap pairs of letters before the encryption and after the encryption, adding another layer of complexity. This can be customized in the *Plugboard Settings* panel.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+3. **Reflector:**
+   - The reflector reflects the signal back through the rotors, creating the encryption. This component is part of the machine’s complexity and helps ensure that encryption is reversible.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### **Default Configuration:**
 
-## Learn More
+Here is the default configuration used in the simulator:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+```javascript
+const defaultConfig: EnigmaConfig = {
+  rotors: [
+    {
+      cablage: "EKMFLGDQVZNTOWYHXUSPAIBRCJ",
+      notch: "Q",
+      position: 0,
+      ringSetting: 0,
+    },
+    {
+      cablage: "AJDKSIRUXBLHWTMCQGZNPYFVOE",
+      notch: "E",
+      position: 0,
+      ringSetting: 0,
+    },
+    {
+      cablage: "BDFHJLCPRTXVZNYEIWGAKMUSQO",
+      notch: "V",
+      position: 0,
+      ringSetting: 0,
+    },
+  ],
+  reflecteur: {
+    wiring: {
+      A: "Y",
+      B: "R",
+      C: "U",
+      D: "H",
+      E: "Q",
+      F: "S",
+      G: "L",
+      H: "D",
+      I: "P",
+      J: "X",
+      K: "N",
+      L: "G",
+      M: "O",
+      N: "K",
+      O: "M",
+      P: "I",
+      Q: "E",
+      R: "B",
+      S: "F",
+      T: "Z",
+      U: "C",
+      V: "W",
+      W: "V",
+      X: "J",
+      Y: "A",
+      Z: "T",
+    },
+  },
+  plugboard: { connections: {} },
+};
