@@ -14,7 +14,6 @@ const RotorSettings: React.FC<RotorSettingsProps> = ({ rotors, onUpdateRotor }) 
 
   return (
     <div className="p-4 bg-gray-800 rounded-lg shadow-md">
-      <h1 className="text-lg font-semibold text-white mb-4">Rotor Settings</h1>
       <div className="space-y-2">
         {rotors.map((rotor, index) => (
           <div

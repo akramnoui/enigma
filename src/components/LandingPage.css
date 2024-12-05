@@ -14,15 +14,18 @@ body {
     align-items: center;
     overflow-x: hidden;
   }
-
-
-  
   .hero h1 {
     font-size: 3.5rem;
     font-weight: bold;
     letter-spacing: 2px;
     margin-bottom: 20px;
     text-transform: uppercase;
+  }
+  .hero h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #bc8100;
+    margin-bottom: 20px;
   }
   
   .hero p {
@@ -143,7 +146,7 @@ body {
   .hero {
     position: relative;
     width: 100%;
-    height: 100vh; /* Full viewport height */
+    height: 100vh; 
     background-image: url('/public/images/enigma-image.webp');
     background-size: cover;
     background-position: center;
@@ -154,16 +157,14 @@ body {
   }
   
   .hero-overlay {
-    background: rgba(0, 0, 0, 0.8); /* Dark overlay for readability */
+    background: rgba(0, 0, 0, 0.8); 
     padding: 40px;
     border-radius: 8px;
     max-width: 600px;
     color: white;
-    z-index: 1; /* Ensures this content is above the blurred background */
+    z-index: 1; 
   }
-  
-  /* Footer Section */
-  .footer {
+    .footer {
     text-align: center;
     padding: 20px;
     background-color: #1f1f1f;
@@ -176,5 +177,13 @@ body {
   .footer span {
     font-weight: bold;
     color: #cf8701;
+  }
+  .university-logo {
+    width: 400px; 
+    height: auto;
+    margin-bottom: 1rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
   

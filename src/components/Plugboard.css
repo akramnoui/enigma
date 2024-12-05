@@ -1,19 +1,102 @@
 .plugboard {
+    background-color: #2b2b2b;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    color: #fff;
+  }
+  
+  .title {
+    font-size: 1.5rem;
+    font-weight: bold;
     text-align: center;
-    margin: 1rem 0;
+    margin-bottom: 1rem;
+  }
+  
+  .description {
+    font-size: 0.9rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #b0b0b0;
+  }
+  
+  .pair-inputs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 1.5rem;
   }
   
   .pair-inputs input {
-    width: 30px;
+    width: 40px;
+    height: 40px;
     text-align: center;
-    margin: 0 0.5rem;
+    font-size: 1.2rem;
+    border: 2px solid #444;
+    border-radius: 5px;
+    background-color: #1e1e1e;
+    color: #fff;
   }
   
-  button {
-    margin-left: 1rem;
+  .pair-inputs input:focus {
+    outline: none;
+    border-color: #6a9fdb;
   }
   
-  .plugboard-map {
+  .connector {
+    font-size: 1.5rem;
+    color: #6a9fdb;
+  }
+  
+  .connect-button {
+    padding: 5px 15px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .connect-button:hover {
+    background-color: #45a049;
+  }
+  
+  .plugboard-visual {
+    display: flex;
+    justify-content: center;
     margin-top: 1rem;
+  }
+  
+  .letters {
+    display: grid;
+    grid-template-columns: repeat(13, 1fr); /* Two rows for 26 letters */
+    gap: 10px;
+  }
+  
+  .plug {
+    text-align: center;
+    padding: 10px;
+    background-color: #1e1e1e;
+    border-radius: 5px;
+    position: relative;
+  }
+  
+  .letter {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+  }
+  
+  .connection {
+    margin-top: 5px;
+    font-size: 0.9rem;
+    color: #ffcc00;
+    cursor: pointer;
+  }
+  
+  .connection:hover {
+    text-decoration: underline;
   }
   

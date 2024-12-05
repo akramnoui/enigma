@@ -39,7 +39,7 @@
   }
   
   .rotor-number {
-    transform: rotate(-20deg);
+    color: #FFF;
   }
   
   .rotor-label {

@@ -8,4 +8,47 @@
     font-size: 1.25rem;
     font-family: Arial, sans-serif;
   }
+  .output-section {
+    background-color: #1e1e1e; /* Darker gray for contrast */
+    border: 1px solid #444;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  .output-message {
+    font-size: 1.25rem;
+    font-family: "Courier New", Courier, monospace; /* Mimic the feel of an old machine output */
+    background-color: #0f0f0f; /* Very dark background for the message area */
+    border: 2px solid #465fff; /* Highlight the message box with a yellow border */
+    border-radius: 10px;
+    padding: 15px;
+    color: #ffeb3b; /* Bright yellow for emphasis */
+    margin-top: 15px;
+    word-break: break-word; /* Handle long encrypted messages */
+  }
+  
+  .output-section h2 {
+    color: #ffffff;
+    font-size: 2rem;
+  }
+  
+  .output-section p {
+    color: #b3b3b3;
+  }
+  
+  .output-section button {
+    background-color: #e63946; /* Red button color */
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+  }
+  
+  .output-section button:hover {
+    background-color: #d62828; /* Darker red on hover */
+  }
   

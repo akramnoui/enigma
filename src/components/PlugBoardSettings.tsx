@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Plugboard } from "../models/EnigmaTypes";
+import "./PlugboardSettings.css";
 
 interface PlugboardSettingsProps {
   plugboard: Plugboard;
@@ -7,46 +8,59 @@ interface PlugboardSettingsProps {
 }
 
 const PlugboardSettings: React.FC<PlugboardSettingsProps> = ({ plugboard, onUpdatePlugboard }) => {
-    const [input, setInput] = useState("");
-  
-    const handleAddConnection = () => {
-      const [a, b] = input.toUpperCase().split("");
-      if (a && b && a !== b) {
-        onUpdatePlugboard({ ...plugboard.connections, [a]: b, [b]: a });
-        setInput("");
-      }
-    };
-  
-    return (
-      <div className="p-4 bg-gray-800 rounded-lg shadow-lg">
-        <h3 className="text-lg font-bold text-white mb-4">Tableau de Connexion</h3>
-        <div className="flex items-center gap-2">
-          <input
-            type="text"
-            className="w-20 p-1 text-sm bg-gray-700 text-white border border-gray-600 rounded"
-            maxLength={2}
-            value={input}
-            onChange={(e) => setInput(e.target.value.toUpperCase())}
-            placeholder="Ex: AB"
-          />
-          <button
-            className="px-4 py-1 text-sm bg-blue-600 text-white rounded hover:bg-blue-700"
-            onClick={handleAddConnection}
-          >
-            Ajouter
-          </button>
-        </div>
-        <div className="mt-4">
-          <h4 className="text-sm text-gray-400">Connexions Actuelles:</h4>
-          {Object.entries(plugboard.connections).map(([key, value]) => (
-            <p key={key} className="text-sm text-gray-300">
-              {key} ↔ {value}
-            </p>
+  const [input, setInput] = useState("");
+
+  const handleAddConnection = () => {
+    const [a, b] = input.toUpperCase().split("");
+    if (a && b && a !== b) {
+      onUpdatePlugboard({ ...plugboard.connections, [a]: b, [b]: a });
+      setInput("");
+    }
+  };
+
+  const handleRemoveConnection = (letter: string) => {
+    const updatedConnections = { ...plugboard.connections };
+    const pairedLetter = updatedConnections[letter];
+    delete updatedConnections[letter];
+    delete updatedConnections[pairedLetter];
+    onUpdatePlugboard(updatedConnections);
+  };
+
+  return (
+    <div className="plugboard-settings">
+      <div className="add-connection">
+        <input
+          type="text"
+          maxLength={2}
+          value={input}
+          onChange={(e) => setInput(e.target.value.toUpperCase())}
+          placeholder="Enter Pair (e.g., AB)"
+          className="connection-input"
+        />
+        <button onClick={handleAddConnection} className="add-button">
+          Add Connection
+        </button>
+      </div>
+      <div className="plugboard-display">
+        <h4>Current Connections</h4>
+        <div className="connections">
+          {Object.entries(plugboard.connections).map(([letter, pairedLetter]) => (
+            <div key={letter} className="connection">
+              <span className="letter">{letter}</span>
+              <span className="arrow">↔</span>
+              <span className="letter">{pairedLetter}</span>
+              <button
+                className="remove-button"
+                onClick={() => handleRemoveConnection(letter)}
+              >
+                ✕
+              </button>
+            </div>
           ))}
         </div>
       </div>
-    );
-  };
-  
-  export default PlugboardSettings;
-  
+    </div>
+  );
+};
+
+export default PlugboardSettings;
