@@ -1,0 +1,25 @@
+.lightboard {
+    margin-top: 2rem;
+    height: 4rem;
+  }
+  
+  .light {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #f90;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    display: inline-block;
+    animation: flash 0.5s ease-out;
+  }
+  
+  @keyframes flash {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+  

@@ -1,0 +1,30 @@
+.landing-page {
+    text-align: center;
+    padding: 2rem;
+    font-family: Arial, sans-serif;
+  }
+  
+  .landing-page h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .landing-page p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+  }
+  
+  .landing-page button {
+    font-size: 1rem;
+    padding: 0.5rem 1.5rem;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .landing-page button:hover {
+    background-color: #45a049;
+  }
+  

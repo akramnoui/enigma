@@ -1,0 +1,19 @@
+.plugboard {
+    text-align: center;
+    margin: 1rem 0;
+  }
+  
+  .pair-inputs input {
+    width: 30px;
+    text-align: center;
+    margin: 0 0.5rem;
+  }
+  
+  button {
+    margin-left: 1rem;
+  }
+  
+  .plugboard-map {
+    margin-top: 1rem;
+  }
+  

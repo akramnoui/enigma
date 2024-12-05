@@ -4,45 +4,57 @@ import { reflexion } from "./utilsReflecteur";
 import { EnigmaConfig, Rotor } from "../models/EnigmaTypes";
 
 // Chiffrement d'une lettre par la machine Enigma
-const chiffrerLettre = (config: EnigmaConfig, rotors: Rotor[], lettre: string): string => {
-  if (!/[A-Z]/.test(lettre)) return lettre; // Ignorer les caractères non alphabétiques
+export const chiffrerLettre = (
+  config: EnigmaConfig,
+  lettre: string,
+  setConfig: React.Dispatch<React.SetStateAction<EnigmaConfig>>
+): string => {
+  if (!/[A-Z]/.test(lettre)) return lettre; // Ignore non-alphabetic characters
 
-  // Passage initial par le tableau de connexion (plugboard)
+  // Initial pass through the plugboard
   const lettreInitiale = echangePlugboard(lettre, config.plugboard);
 
-  // Passage avant dans les rotors
-  const passageAvant = rotors.reduce(
+  // Forward pass through the rotors
+  const passageAvant = config.rotors.reduce(
     (lettreChiffree, rotor) => transformationRotor(lettreChiffree, rotor, true),
     lettreInitiale
   );
 
-  // Réflexion via le réflecteur
+  // Reflection via the reflector
   const lettreReflechie = reflexion(passageAvant, config.reflecteur);
+  console.log("Reflected letter:", lettreReflechie);
 
-  // Passage arrière dans les rotors
-  const passageArriere = rotors.reduceRight(
+  // Backward pass through the rotors
+  const passageArriere = config.rotors.reduceRight(
     (lettreChiffree, rotor) => transformationRotor(lettreChiffree, rotor, false),
     lettreReflechie
   );
 
-  // Passage final par le plugboard
-  return echangePlugboard(passageArriere, config.plugboard);
+  // Final pass through the plugboard
+  const lettreFinale = echangePlugboard(passageArriere, config.plugboard);
+
+  // Advance the rotors after encrypting a single letter
+  setConfig((prevConfig) => ({
+    ...prevConfig,
+    rotors: avancerRotors(prevConfig.rotors),
+  }));
+
+  return lettreFinale;
 };
 
 // Chiffrement d’un message complet
-export const chiffrerMessage = (config: EnigmaConfig, message: string): string => {
-  const rotorsInitials = config.rotors;
+export const chiffrerMessage = (
+  config: EnigmaConfig,
+  message: string,
+  setConfig: React.Dispatch<React.SetStateAction<EnigmaConfig>>
+): string => {
+  let messageChiffre = "";
 
-  const resultat = message.split("").reduce(
-    ({ messageChiffre, rotors }, lettre) => {
-      const nouvelleLettre = chiffrerLettre(config, rotors, lettre);
-      return {
-        messageChiffre: messageChiffre + nouvelleLettre,
-        rotors: avancerRotors(rotors),
-      };
-    },
-    { messageChiffre: "", rotors: rotorsInitials }
-  );
+  // Encrypt each letter in the message
+  message.split("").forEach((lettre) => {
+    const nouvelleLettre = chiffrerLettre(config, lettre, setConfig);
+    messageChiffre += nouvelleLettre;
+  });
 
-  return resultat.messageChiffre;
+  return messageChiffre;
 };

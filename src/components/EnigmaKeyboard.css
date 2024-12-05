@@ -1,0 +1,23 @@
+.keyboard {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 0.5rem;
+    justify-content: center;
+    margin: 1rem auto;
+  }
+  
+  .key {
+    padding: 1rem;
+    text-align: center;
+    font-size: 1.2rem;
+    background-color: #f0f0f0;
+    color: black;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .key:hover {
+    background-color: #ddd;
+  }
+  
