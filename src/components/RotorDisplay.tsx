@@ -7,7 +7,7 @@ interface RotorDisplayProps {
 
 const RotorDisplay: React.FC<RotorDisplayProps> = ({ rotorPositions }) => {
   return (
-    <div className="rotor-display">
+    <div className="rotor-display mt-8">
       {rotorPositions.map((position, index) => (
         <div key={index} className="rotor">
           <p>Rotor {index + 1}</p>
