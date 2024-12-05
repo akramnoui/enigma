@@ -2,16 +2,20 @@ import React from "react";
 import "./RotorDisplay.css";
 
 interface RotorDisplayProps {
-  rotorPositions: number[]; // Positions des rotors
+  rotorPositions: number[]; // Positions of the rotors
 }
 
 const RotorDisplay: React.FC<RotorDisplayProps> = ({ rotorPositions }) => {
   return (
-    <div className="rotor-display mt-8">
+    <div className="rotor-display flex justify-center gap-6 mt-8">
       {rotorPositions.map((position, index) => (
-        <div key={index} className="rotor">
-          <p>Rotor {index + 1}</p>
-          <div className="position">{position}</div>
+        <div key={index} className="rotor-container">
+          <div className="rotor-circle">
+            <div className="rotor-inner">
+              <p className="rotor-number">{position}</p>
+            </div>
+          </div>
+          <p className="rotor-label">Rotor {index + 1}</p>
         </div>
       ))}
     </div>

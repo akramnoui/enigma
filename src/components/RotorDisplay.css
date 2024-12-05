@@ -1,24 +1,61 @@
 .rotor-display {
     display: flex;
     justify-content: center;
-    gap: 1rem;
+    gap: 2rem;
   }
   
-  .rotor {
+  .rotor-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #222;
-    padding: 1rem;
-    border-radius: 8px;
-    border: 2px solid #444;
-    color: #fff;
-    width: 80px;
   }
   
-  .position {
-    font-size: 1.5rem;
+  .rotor-circle {
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, #333, #111);
+    border: 4px solid #666;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  }
+  
+  .rotor-inner {
+    width: 70px;
+    height: 70px;
+    background: #222;
+    border: 3px solid #444;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
     font-weight: bold;
-    margin-top: 0.5rem;
+    color: #00ff00;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.7);
+  }
+  
+  .rotor-number {
+    transform: rotate(-20deg);
+  }
+  
+  .rotor-label {
+    margin-top: 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+  }
+  
+  /* Add tick marks around the rotor circle */
+  .rotor-circle::before {
+    content: "";
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    border-radius: 50%;
+    border: 1px dashed #888;
   }
   

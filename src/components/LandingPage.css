@@ -1,30 +1,180 @@
-.landing-page {
-    text-align: center;
-    padding: 2rem;
-    font-family: Arial, sans-serif;
-  }
-  
-  .landing-page h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-  }
-  
-  .landing-page p {
-    font-size: 1.25rem;
-    margin-bottom: 2rem;
-  }
-  
-  .landing-page button {
-    font-size: 1rem;
-    padding: 0.5rem 1.5rem;
-    background-color: #4caf50;
+/* General Styles */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #121212;
     color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    line-height: 1.6;
   }
   
-  .landing-page button:hover {
-    background-color: #45a049;
+  .landing-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+  }
+
+
+  
+  .hero h1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+  
+  .hero p {
+    font-size: 1.25rem;
+    margin-bottom: 25px;
+    line-height: 1.8;
+  }
+  
+  .hero button {
+    background: linear-gradient(45deg, #cf8701, #e07b00);
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  .hero button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.7);
+  }
+  
+  .hero button:active {
+    transform: translateY(2px);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Section Styles */
+  .sections {
+    width: 100%;
+    padding: 60px 20px;
+    background-color: #1f1f1f;
+  }
+  
+  .simulation-section {
+    margin: 40px auto;
+    text-align: center;
+    max-width: 900px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    transition: transform 0.3s ease, background 0.3s ease;
+  }
+  
+  .simulation-section:hover {
+    transform: scale(1.03);
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  .simulation-section h2 {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: #cf8701;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+  
+  .simulation-section p,
+  .simulation-section ul li {
+    font-size: 1.15rem;
+    margin-bottom: 15px;
+    line-height: 1.8;
+  }
+  
+  .simulation-section ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .simulation-section ul li::before {
+    content: '✔';
+    color: #cf8701;
+    margin-right: 10px;
+    font-weight: bold;
+  }
+  
+  .simulation-section ul li {
+    text-align: left;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 5px 0;
+  }
+  
+  /* Media Queries */
+  @media (max-width: 768px) {
+    .hero h1 {
+      font-size: 2.8rem;
+    }
+  
+    .hero p {
+      font-size: 1rem;
+    }
+  
+    .simulation-section {
+      padding: 15px;
+    }
+  
+    .simulation-section h2 {
+      font-size: 1.8rem;
+    }
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .hero {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    background-image: url('/public/images/enigma-image.webp');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .hero-overlay {
+    background: rgba(0, 0, 0, 0.8); /* Dark overlay for readability */
+    padding: 40px;
+    border-radius: 8px;
+    max-width: 600px;
+    color: white;
+    z-index: 1; /* Ensures this content is above the blurred background */
+  }
+  
+  /* Footer Section */
+  .footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #1f1f1f;
+    color: white;
+    font-size: 0.9rem;
+    margin-top: 40px;
+    border-top: 1px solid #333;
+  }
+  
+  .footer span {
+    font-weight: bold;
+    color: #cf8701;
   }
   
