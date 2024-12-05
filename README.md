@@ -6,10 +6,10 @@ This project is a fully functional simulator of the Enigma machine, built with *
 The Enigma machine was a cipher device used in the 20th century for secure communication. It worked by using multiple rotors, a plugboard, and a reflector to produce a highly secure, pseudo-random encryption of messages.
 
 ## Features
-- **Realistic Encryption/Decryption:** Simulates the Enigma machine's encryption process.
-- **Dynamic Rotor Movement:** Rotors automatically advance after each key press.
-- **Plugboard Support:** Allows custom plugboard connections for added complexity.
-- **Reflector Support:** Simulates the real-world reflector wiring for accurate encryption.
+- **Encryption/Decryption:** Simulates the Enigma machine's encryption process.
+- **Rotor Movement:** Rotors automatically advance after each key press.
+- **Plugboard:** Allows custom plugboard connections for added complexity.
+- **Reflector:** Simulates the real-world reflector wiring for accurate encryption.
 - **Configurable Settings:** Customize rotors, plugboard, and reflector settings before encryption.
 - **Reset Functionality:** Restore the default configuration at any time.
 
@@ -19,7 +19,7 @@ The Enigma machine was a cipher device used in the 20th century for secure commu
 
 ### **To run the Enigma machine simulator, simply visit the following link:**
 
-## [**Enigma Machine Simulator**](https://enigma-seven-xi.vercel.app/simulation)
+## [**Enigma Machine Simulator**](https://enigma-seven-xi.vercel.app)
 
 ### **How to Encrypt and Decrypt:**
 1. **Customize the Machine Configuration:**
